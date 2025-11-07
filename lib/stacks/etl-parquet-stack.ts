@@ -225,7 +225,7 @@ export class EtlParquetStack extends Stack {
           }
         ],
       },
-      tablePrefix: 'parquet_',
+      tablePrefix: 'etl_',
       schemaChangePolicy: {
         updateBehavior: 'UPDATE_IN_DATABASE',
         deleteBehavior: 'LOG',
