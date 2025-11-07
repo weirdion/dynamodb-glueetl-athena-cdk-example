@@ -3,6 +3,8 @@
 AWS CDK example demonstrating four different approaches to extract data from DynamoDB
 and query it via Athena, highlighting real-world pitfalls and the recommended solution.
 
+This example was written to support my blog post - [https://weirdion.substack.com/p/querying-dynamodb-data-in-athena](https://weirdion.substack.com/p/querying-dynamodb-data-in-athena)
+
 ## Overview
 
 This project shows the practical challenges of moving DynamoDB data to Athena for analytics:
