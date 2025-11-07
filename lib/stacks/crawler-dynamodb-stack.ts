@@ -8,6 +8,7 @@ import {
 import { CfnCrawler } from 'aws-cdk-lib/aws-glue';
 import {
   Effect,
+  PolicyDocument,
   PolicyStatement,
   Role,
   ServicePrincipal
@@ -40,21 +41,25 @@ export class CrawlerDynamoDbStack extends Stack {
   constructor(scope: Construct, id: string, props: CrawlerDynamoDbStackProps) {
     super(scope, id, props);
 
-    // IAM Role for Glue Crawler
+    // IAM Role for Glue Crawler with inline DynamoDB policy
     this.crawlerRole = new Role(this, 'DynamoDbCrawlerRole', {
       assumedBy: new ServicePrincipal('glue.amazonaws.com'),
       description: 'IAM role for Glue crawler to catalog DynamoDB table',
+      inlinePolicies: {
+        DynamoDBAccess: new PolicyDocument({
+          statements: [
+            new PolicyStatement({
+              effect: Effect.ALLOW,
+              actions: [
+                'dynamodb:DescribeTable',
+                'dynamodb:Scan'
+              ],
+              resources: [props.tableArn]
+            })
+          ]
+        })
+      }
     });
-
-    // Grant DynamoDB permissions
-    this.crawlerRole.addToPolicy(new PolicyStatement({
-      effect: Effect.ALLOW,
-      actions: [
-        'dynamodb:DescribeTable',
-        'dynamodb:Scan'
-      ],
-      resources: [props.tableArn],
-    }));
 
     // Grant Glue Data Catalog permissions
     this.crawlerRole.addToPolicy(new PolicyStatement({
