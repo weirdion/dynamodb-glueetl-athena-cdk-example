@@ -110,6 +110,7 @@ export class DataStack extends Stack {
         enforceWorkGroupConfiguration: true,
         publishCloudWatchMetricsEnabled: false, // Disable to reduce costs for demo
       },
+      recursiveDeleteOption: true, // For demo purposes
     });
 
     // Lambda Function for Data Seeding

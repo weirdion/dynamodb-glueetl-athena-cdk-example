@@ -30,8 +30,7 @@ export interface ExportIonStackProps extends StackProps {
  *
  * Problem demonstrated:
  * - ION is a compact, binary format that's efficient for storage
- * - However, Athena lacks native SerDe support for ION format
- * - Crawler may create a table, but queries will fail in Athena
+ * - However, Athena doesn't unpack the nested ION format
  */
 export class ExportIonStack extends Stack {
   public readonly crawler: CfnCrawler;
