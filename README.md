@@ -9,10 +9,10 @@ This example was written to support my blog post - [https://weirdion.substack.co
 
 This project shows the practical challenges of moving DynamoDB data to Athena for analytics:
 
-0. **Approach 1: Glue Crawler on DynamoDB** - The most obvious approach that fundamentally doesn't work
-1. **Approach 2: DynamoDB Export (JSON)** - Shows nested type descriptors making queries complex
-2. **Approach 3: DynamoDB Export (ION)** - Shows nested type descriptors, simpler than JSON but queries still complex
-3. **Approach 4: Glue ETL (Parquet)** - The recommended solution with clean schema
+- **Approach 1: Glue Crawler on DynamoDB** - The most obvious approach that fundamentally doesn't work
+- **Approach 2: DynamoDB Export (JSON)** - Shows nested type descriptors making queries complex
+- **Approach 3: DynamoDB Export (ION)** - Shows nested type descriptors, simpler than JSON but queries still complex
+- **Approach 4: Glue ETL (Parquet)** - The recommended solution with clean schema
 
 ## Architecture
 
