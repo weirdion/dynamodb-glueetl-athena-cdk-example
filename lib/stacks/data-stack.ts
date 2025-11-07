@@ -129,9 +129,7 @@ export class DataStack extends Stack {
     this.table.grantWriteData(this.seederFunction);
 
     // Add resource tags
-    Tags.of(this).add('Project', 'DynamoDB-Glue-Athena-Pipeline');
     Tags.of(this).add('Stack', 'DataStack');
-    Tags.of(this).add('Purpose', 'Demo');
 
     // CloudFormation Outputs
     new CfnOutput(this, 'TableName', {

@@ -27,7 +27,8 @@ const env = {
   region: process.env.CDK_DEFAULT_REGION,
 };
 
-Tags.of(app).add('project', 'dynamodb-glueetl-athena-cdk-example');
+Tags.of(app).add('Project', 'DynamoDB-Glue-Athena-Pipeline');
+Tags.of(app).add('Purpose', 'Demo');
 
 // Deploy foundation infrastructure
 const dataStack = new DataStack(app, 'DataStack', {
